@@ -1,4 +1,14 @@
-﻿/* iOS PWA Safe Area & Pull-to-refresh styling */
+﻿:root {
+  color-scheme: light !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+    color-scheme: light !important;
+    background-color: #10b981 !important;
+  }
+}
+/* iOS PWA Safe Area & Pull-to-refresh styling */
 html {
   background-color: #10b981;
 }
@@ -533,4 +543,5 @@ li.item-card:active {
 .hidden {
     display: none !important;
 }
+
 
