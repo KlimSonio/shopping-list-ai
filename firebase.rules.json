@@ -1,0 +1,38 @@
+﻿{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "shoppingList": {
+      ".read": true,
+      ".write": true,
+      "$item_id": {
+        ".validate": "newData.hasChildren(['name', 'done'])",
+        "name": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 150"
+        },
+        "done": {
+          ".validate": "newData.isBoolean()"
+        },
+        "amount": {
+          ".validate": "!newData.exists() || (newData.isString() && newData.val().length <= 50)"
+        },
+        "category": {
+          ".validate": "!newData.exists() || (newData.isString() && newData.val().length <= 50)"
+        },
+        "createdAt": {
+          ".validate": "!newData.exists() || newData.isNumber()"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    "learnedDictionary": {
+      ".read": true,
+      ".write": true,
+      "$word": {
+        ".validate": "newData.isString() && newData.val().length <= 50"
+      }
+    }
+  }
+}

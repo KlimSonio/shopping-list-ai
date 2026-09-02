@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Najlepsza rodzinka</title>
+    <meta name="theme-color" content="#10b981">
+    <!-- Nowy standard dla Chrome / Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Wsparcie dla Apple Safari / iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Zakupy">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="index.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- WIDOK 1: LISTA ZAKUPÓW -->
+        <section id="view-shopping" class="view active">
+            <h1>Najlepsza rodzinka</h1>
+            <img src="assets/cat.png" alt="Kot" class="cat-logo">
+            
+            <div class="input-element hidden" id="input-element">
+                <button id="voice-btn" type="button" aria-label="Mów do mikrofonu" title="Dyktuj zakupy">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+                <input type="text" id="input-field" placeholder="Wpisz lub podyktuj...">
+                <button id="add-button" type="button" aria-label="Zatwierdź"><i class="fa-solid fa-circle-plus"></i></button>
+            </div>
+
+            <!-- Kontener na działy sklepowe -->
+            <div id="shopping-categories-container"></div>
+
+            <!-- Sekcja kupionych -->
+            <div id="completed-section" class="hidden">
+                <div class="completed-header">
+                    <span>Kupione (<span id="completed-count">0</span>)</span>
+                    <button id="clear-completed-btn" type="button"><i class="fa-solid fa-trash-can"></i> Wyczyść</button>
+                </div>
+                <ul id="completed-list"></ul>
+            </div>
+        </section>
+
+        <!-- WIDOK 2: MISTRZ POGODA -->
+        <section id="view-weather" class="view hidden">
+            <header class="location-header">
+                <i class="fa-solid fa-location-dot"></i>
+                <h2 id="city-name">Warszawa</h2>
+                <button id="refresh-gps" title="Odśwież GPS"><i class="fa-solid fa-crosshairs"></i></button>
+            </header>
+
+            <div class="weather-hero">
+                <div id="weather-icon" class="main-icon"><i class="fa-solid fa-sun"></i></div>
+                <div class="temp-wrap">
+                    <h1 id="temp-current">--°</h1>
+                    <p id="weather-desc">Pobieranie danych...</p>
+                </div>
+                <div class="feels-like">Odczuwalna: <span id="temp-feels">--°C</span></div>
+            </div>
+
+            <div id="weather-tip" class="tip-card">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span id="tip-text">Sprawdzanie warunków...</span>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-card">
+                    <i class="fa-solid fa-wind"></i>
+                    <span class="detail-label">Wiatr</span>
+                    <span id="wind-speed" class="detail-val">-- km/h</span>
+                </div>
+                <div class="detail-card">
+                    <i class="fa-solid fa-droplet"></i>
+                    <span class="detail-label">Wilgotność</span>
+                    <span id="humidity" class="detail-val">--%</span>
+                </div>
+                <div class="detail-card">
+                    <i class="fa-solid fa-umbrella"></i>
+                    <span class="detail-label">Opady</span>
+                    <span id="rain-chance" class="detail-val">--%</span>
+                </div>
+                <div class="detail-card">
+                    <i class="fa-solid fa-sun-plant-wilt"></i>
+                    <span class="detail-label">Indeks UV</span>
+                    <span id="uv-index" class="detail-val">--</span>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h3>Kolejne godziny</h3>
+                <div class="hourly-slider" id="hourly-forecast"></div>
+            </div>
+
+            <div class="section-block">
+                <h3>Prognoza na 3 dni</h3>
+                <div class="daily-list" id="daily-forecast"></div>
+            </div>
+        </section>
+
+        <!-- DOLNA NAWIGACJA -->
+        <nav class="footer-bottom">
+            <button id="tab-shopping" class="nav-tab active" aria-label="Zakupy">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+            <button id="tab-weather" class="nav-tab" aria-label="Pogoda">
+                <i class="fa-solid fa-cloud-sun"></i>
+            </button>
+            <button id="nav-add-btn" class="nav-add-btn" aria-label="Dodaj produkt">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </nav>
+    </div>
+
+    <script src="index.js" type="module"></script>
+</body>
+</html>
