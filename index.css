@@ -1,4 +1,19 @@
-﻿/* Safe Area Support for iOS notch/Dynamic Island */
+﻿/* iOS PWA Safe Area & Pull-to-refresh styling */
+html {
+  background-color: #10b981;
+}
+
+#ios-status-bar-fill {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: env(safe-area-inset-top, 0px);
+  background-color: #10b981;
+  z-index: 99999;
+  pointer-events: none;
+}
+/* Safe Area Support for iOS notch/Dynamic Island */
 :root {
   --safe-top: env(safe-area-inset-top, 0px);
 }
@@ -518,3 +533,4 @@ li.item-card:active {
 .hidden {
     display: none !important;
 }
+

@@ -1,4 +1,4 @@
-﻿const CACHE_NAME = 'zakupy-cache-v11';
+﻿const CACHE_NAME = 'zakupy-cache-v12';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -67,5 +67,6 @@ self.addEventListener('fetch', (e) => {
     })
   );
 });
+
 
 
