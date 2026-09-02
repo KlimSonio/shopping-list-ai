@@ -1,3 +1,17 @@
+﻿/* Safe Area Support for iOS notch/Dynamic Island */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  padding-top: var(--safe-top);
+  background-color: #10b981;
+}
+
+#app, .container, main {
+  background-color: #f8fafc;
+  min-height: calc(100vh - var(--safe-top));
+}
 * {
     box-sizing: border-box;
 }
