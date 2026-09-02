@@ -543,22 +543,3 @@ li.item-card:active {
 .hidden {
     display: none !important;
 }
-
-
-
-/* --- iOS Status Bar & Canvas Fix --- */
-html, body {
-  background-color: #f8fafc !important;
-  color-scheme: light !important;
-}
-
-#ios-status-bar-fill {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: env(safe-area-inset-top, 0px);
-  background-color: #10b981 !important;
-  z-index: 99999;
-  pointer-events: none;
-}
