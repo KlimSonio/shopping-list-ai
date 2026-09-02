@@ -27,6 +27,21 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#f8fafc">
+  <script>
+    (function() {
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) { meta.setAttribute('content', '#f8fafc'); }
+      if ('serviceWorker' in navigator) {
+        var refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', function() {
+          if (!refreshing) {
+            refreshing = true;
+            window.location.reload();
+          }
+        });
+      }
+    })();
+  </script>
 </head>
 <body>
     <div class="container">
@@ -129,6 +144,7 @@
     <script src="index.js" type="module"></script>
 </body>
 </html>
+
 
 
 
